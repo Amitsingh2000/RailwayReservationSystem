@@ -23,7 +23,7 @@ public class User
 	private String userEmail;
 	private String mobileNo;
 	private String role;
-	@OneToMany(mappedBy = "userDetails", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "userDetails")
 	private List<Ticket> userTickets = new ArrayList<>();
 	
 	public User() { }

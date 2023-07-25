@@ -66,6 +66,21 @@
                 </div>
                 <div class="col-4 mb-3">
                     <div class="card mb-3" style="height: 15rem;  width: 350px;">
+	                     <a href="/viewProfile"> 
+	                        <div class="card-header fs-3 text-center">Profile</div>
+		                        <div class="card-body">
+		                            <div class="container text-center">
+		                                <i class="bi bi-person-circle fs-1"></i>
+		                                <p class="mt-3">My Profile</p>
+		                            </div>
+		                       </div>
+	                    </a>
+                    </div>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col-4 offset-2 mb-3">
+                    <div class="card mb-3" style="height: 15rem;  width: 350px;">
                         <a href="/viewBookings?userId=${user.userId}"> 
                         <div class="card-header fs-3 text-center">Bookings</div>
                         <div class="card-body">
@@ -77,30 +92,17 @@
                         </a>
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-4 offset-2 mb-3">
-                    <div class="card mb-3" style="height: 15rem;  width: 350px;">
-                     <a href="/viewProfile"> 
-                        <div class="card-header fs-3 text-center">Profile</div>
-	                        <div class="card-body">
-	                            <div class="container text-center">
-	                                <i class="bi bi-person-circle fs-1"></i>
-	                                <p class="mt-3">My Profile</p>
-	                            </div>
-	                        </div>
-                    </a>
-                    </div>
-                </div>
                 <div class="col-4 mb-3">
                     <div class="card  mb-3" style="height: 15rem;  width: 350px;">
-                        <div class="card-header fs-3 text-center">Setting</div>
-                        <div class="card-body">
-                            <div class="container text-center">
-                                <i class="bi bi-gear fs-1"></i>
-                                <p class="mt-3">Go to Setting</p>
-                            </div>
-                        </div>
+                        <a href="/ticketCancel"> 
+	                        <div class="card-header fs-3 text-center">Ticket</div>
+	                        <div class="card-body">
+	                            <div class="container text-center">
+	                                <i class="bi bi-ticket-detailed fs-1"></i>
+		                            <p class="mt-3">Cancel Ticket</p>
+	                            </div>
+	                        </div>
+                       	</a>
                     </div>
                 </div>
             </div>

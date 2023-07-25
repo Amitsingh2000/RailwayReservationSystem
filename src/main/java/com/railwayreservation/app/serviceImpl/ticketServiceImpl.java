@@ -53,9 +53,19 @@ public class ticketServiceImpl implements ticketService
 	}
 
 	@Override
-	public void deleteBooking(int ticketId)
+	public void cancelTicket(int ticketId) 
 	{
-		ticketRepo.deleteByTicketId(ticketId);
+		Ticket ticket =viewTicket(ticketId);
+		Train train =trainService.viewTrainById(ticket.getTicketTrain().getTrainId());
+		train.setTrainSeats(ticket.getSeats()+train.getTrainSeats());
+		trainService.updateTrain(train);
+		ticketRepo.deleteById(ticketId);
+	}
+
+	@Override
+	public Ticket viewTicket(int ticketId) 
+	{
+		return ticketRepo.findByTicketId(ticketId);
 	}
 
 

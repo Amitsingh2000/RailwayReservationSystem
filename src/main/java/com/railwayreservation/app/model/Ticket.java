@@ -14,13 +14,13 @@ public class Ticket
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int ticketId;
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = { CascadeType.PERSIST})
 	private Train ticketTrain;
 	private String date;
 	private int seats;
 	private double totalAmount;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne(cascade = { CascadeType.PERSIST})
 	private User userDetails;
 
 	
