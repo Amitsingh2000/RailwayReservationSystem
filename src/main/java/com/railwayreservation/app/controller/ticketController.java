@@ -13,6 +13,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.railwayreservation.app.model.Ticket;
 import com.railwayreservation.app.service.ticketService;
+import com.railwayreservation.app.service.userService;
 
 
 @Controller
@@ -20,6 +21,8 @@ public class ticketController
 {
 	@Autowired
 	private ticketService ticketService;
+	@Autowired
+	private userService userService;
 	
 	@PostMapping(value="/bookTicket")
 	public String bookTicket(@RequestParam int trainId,@RequestParam int userId,@RequestParam int seats,@RequestParam double totalAmount,RedirectAttributes redirect)
@@ -34,6 +37,30 @@ public class ticketController
 		List<Ticket> userBookings = ticketService.viewUserBookings(userId);
 		m.addAttribute("userBookings",userBookings);
 		return"viewBookings";
+	}
+	@PostMapping(value="/ticketCancellation")
+	public String ticketCancellation(@RequestParam int userId,@RequestParam int ticketId,RedirectAttributes redirect)
+	{
+		if(userService.viewUser(userId)!=null)
+		{
+			if(ticketService.viewTicket(ticketId)!=null)
+			{
+				ticketService.cancelTicket(ticketId);
+				redirect.addFlashAttribute("message","Ticket Deleted Successfully");
+				return "redirect:/ticketCancel";
+			}
+			else
+			{
+				redirect.addFlashAttribute("message","Ticket Not Found");
+				return "redirect:/ticketCancel";
+			}
+		}
+		else
+		{
+			redirect.addFlashAttribute("message","Login First For Cancel Ticket");
+			return "redirect:/login";
+		}
+		
 	}
 
 }

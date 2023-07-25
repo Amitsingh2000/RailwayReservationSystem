@@ -110,4 +110,9 @@ public class homeController
 	{
 		return "contactUs";
 	}
+	@GetMapping(value="/ticketCancel")
+	public String ticketCancel()
+	{
+		return "cancelTicket";
+	}
 }

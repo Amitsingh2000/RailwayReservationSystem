@@ -12,7 +12,7 @@ import com.railwayreservation.app.model.User;
 @Repository
 public interface ticketRepository extends CrudRepository<Ticket, Integer>
 {
+	public Ticket findByTicketId(int ticketId);
 	public List<Ticket> findByUserDetails(User userDetails);
 	public List<Ticket> findByUserDetailsUserId(int userId);
-	public void deleteByTicketId(int ticketId);
 }

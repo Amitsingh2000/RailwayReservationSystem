@@ -1,6 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <c:set var="user" value="${User}" />	
         <div class="container">
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,6 +12,7 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/home">Home</a>
                     </li>
+                   	<c:if test="${user.role ne 'ADMIN'}">
                    	<li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -18,16 +20,17 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/bookNow">Book Ticket</a></li>
+                            <li><a class="dropdown-item" href="/ticketCancel">Cancel Ticket</a></li>
                         </ul>
                     </li>
+                    </c:if>
                  </ul>
             </div>
         <ul class="navbar-nav ml-auto"> 
         	<li class="nav-item">
 				<a class="nav-link active" aria-current="page" href="/contactUs">Contact Us</a>
 			</li>
-	    	<c:set var="user" value="${User}" />	
-			<c:choose>
+	    	<c:choose>
 				<c:when test="${user.role == null}">
 		    			<ul class="navbar-nav ml-auto">
 			                <li class="nav-item ">
